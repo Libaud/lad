@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <Version Value="10"/>
+    <BuildModes Active="Linux Debian X64 Debug GTK"/>
+    <Units Count="13">
+      <Unit0>
+        <Filename Value="linuxautocheckdisks.ppr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="21"/>
+        <UsageCount Value="49"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainFRM"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Main"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="19" Y="69"/>
+        <UsageCount Value="49"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="/usr/local/codetyphon/typhon/packager/registration/lazaruspackageintf.pas"/>
+        <UnitName Value="LazarusPackageIntf"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="75"/>
+        <CursorPos Y="102"/>
+        <UsageCount Value="19"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="/usr/local/codetyphon/typhon/packager/registration/fcllaz.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="17" Y="5"/>
+        <UsageCount Value="19"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/maps.pp"/>
+        <UnitName Value="Maps"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="400"/>
+        <CursorPos X="17" Y="416"/>
+        <UsageCount Value="19"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/lazlistclasses.pas"/>
+        <UnitName Value="LazListClasses"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1623"/>
+        <CursorPos X="20" Y="1639"/>
+        <UsageCount Value="19"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="/usr/local/codetyphon/typhon/lcl/interfaces/qt5/interfaces.pp"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="17"/>
+        <UsageCount Value="19"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="/usr/local/codetyphon/fpcsrc/compiler/systems/t_android.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="399"/>
+        <CursorPos X="22" Y="412"/>
+        <UsageCount Value="13"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="/usr/local/codetyphon/fpcsrc/compiler/systems/t_linux.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="808"/>
+        <CursorPos X="28" Y="177"/>
+        <UsageCount Value="13"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="/usr/local/codetyphon/fpcsrc/compiler/x86/cpubase.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="352"/>
+        <CursorPos X="9" Y="294"/>
+        <UsageCount Value="13"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="/usr/local/codetyphon/typhon/components/BaseUtils/dynhasharray.pp"/>
+        <UnitName Value="DynHashArray"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="489"/>
+        <CursorPos X="36" Y="505"/>
+        <UsageCount Value="10"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="/usr/local/codetyphon/typhon/lcl/interfaces/adlcl.pas"/>
+        <UnitName Value="adLCL"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="52" Y="21"/>
+        <UsageCount Value="13"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="/usr/local/codetyphon/typhon/lcl/interfaces/qt5/qt5lclintf.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="390"/>
+        <CursorPos X="61" Y="406"/>
+        <UsageCount Value="13"/>
+      </Unit12>
+    </Units>
+    <JumpHistory HistoryIndex="-1"/>
+  </ProjectSession>
+</CONFIG>

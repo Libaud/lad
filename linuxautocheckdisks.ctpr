@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectOptions>
+    <Version Value="10"/>
+    <General>
+      <SessionStorage Value="InProjectDir"/>
+      <MainUnit Value="0"/>
+      <Title Value="Linux Autocheck Disks"/>
+      <ResourceType Value="res"/>
+      <UseXPManifest Value="True"/>
+      <Icon Value="0"/>
+    </General>
+    <CustomData Count="15">
+      <Item0 Name="lazpackager/copyright" Value="2012 Jane Doe"/>
+      <Item1 Name="lazpackager/deb/ppa" Value="ppa:johndoe/use-your-own"/>
+      <Item2 Name="lazpackager/deb/series" Value="precise"/>
+      <Item3 Name="lazpackager/deb/tpl_changelog" Value="?PACKAGE_NAME? (?FULLVERSION?) ?SERIES?; urgency=low
+
+  * Original version ?VERSION? packaged with lazdebian
+
+ -- ?MAINTAINER? &lt;?MAINTAINER_EMAIL?>  ?DATER?
+"/>
+      <Item4 Name="lazpackager/deb/tpl_control" Value="Source: ?PACKAGE_NAME?
+Maintainer: ?MAINTAINER? &lt;?MAINTAINER_EMAIL?>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.3
+Build-Depends: fpc, lazarus, lcl, lcl-utils, debhelper (>= 8)
+
+Package: ?PACKAGE_NAME?
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+Description: ?DESCRIPTION?
+ ?DESCRIPTION_LONG?
+"/>
+      <Item5 Name="lazpackager/deb/tpl_copyright" Value="Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+
+Files: *
+Copyright: ?COPYRIGHT?
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along
+ with this program; if not, write to the Free Software Foundation, Inc.,
+ 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ .
+ On Debian systems, the full text of the GNU General Public
+ License version 2 can be found in the file
+ /usr/share/common-licenses/GPL-2
+"/>
+      <Item6 Name="lazpackager/deb/tpl_rules" Value="#!/usr/bin/make -f
+
+ROOT = $(CURDIR)/debian/?PACKAGE_NAME?
+
+override_dh_auto_clean:
+	$(RM) -r lib
+	$(RM) lib *.res ?EXECUTABLE?
+
+override_dh_auto_build:
+	typhoonbuild ?PROJECT?
+
+override_dh_auto_install:
+	install -d -m 755 $(ROOT)/usr/bin
+	install -s -m 755 ?EXECUTABLE? $(ROOT)/usr/bin
+
+%:
+	dh $@
+"/>
+      <Item7 Name="lazpackager/description" Value="this is a program"/>
+      <Item8 Name="lazpackager/description_long" Value="long description may not be empty!"/>
+      <Item9 Name="lazpackager/export_cmd" Value="?CP? *.ctpr ?TEMPFOLDER?/
+?CP? *.ppr ?TEMPFOLDER?/
+?CP? *.pas ?TEMPFOLDER?/
+?CP? *.frm ?TEMPFOLDER?/
+?CP? *.ico ?TEMPFOLDER?/
+"/>
+      <Item10 Name="lazpackager/maintainer" Value="John Doe"/>
+      <Item11 Name="lazpackager/maintainer_email" Value="john_doe@example.invalid"/>
+      <Item12 Name="lazpackager/package_name" Value="debian-package-name"/>
+      <Item13 Name="lazpackager/tpl_makefile" Value="PREFIX = /usr/local
+
+# debuild will set DESTDIR to the fakeroot path and
+# in the override rules we will change PREFIX to /usr
+BINDIR = $(DESTDIR)$(PREFIX)/bin
+
+.PHONY : all
+all:
+	typhoonbuild ?PROJECT?
+
+.PHONY : clean
+clean:
+	$(RM) -r lib
+	$(RM) *.res
+	$(RM) ?EXECUTABLE?
+
+.PHONY : install
+install:
+	mkdir -p $(BINDIR)
+	install -s ?EXECUTABLE? $(BINDIR)/
+"/>
+      <Item14 Name="lazpackager/use_existing_makefile" Value="False"/>
+    </CustomData>
+    <MacroValues Count="1">
+      <Macro1 Name="LCLWidgetType" Value="qt5"/>
+    </MacroValues>
+    <BuildModes Count="8">
+      <Item1 Name="Linux Debian X64 Debug QT" Default="True"/>
+      <Item2 Name="Linux Debian X64 Release QT">
+        <MacroValues Count="1">
+          <Macro1 Name="LCLWidgetType" Value="qt5"/>
+        </MacroValues>
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="bin/QT/release/$(TargetCPU)-$(TargetOS)/lad"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib/QT/release/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <RelocatableUnit Value="True"/>
+            <TargetCPU Value="x86_64"/>
+            <TargetOS Value="linux"/>
+            <Optimizations>
+              <OptimizationLevel Value="3"/>
+            </Optimizations>
+            <SmallerCode Value="True"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <UseLineInfoUnit Value="False"/>
+              <StripSymbols Value="True"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShowNotes Value="False"/>
+              <ShowHints Value="False"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+          </Other>
+        </CompilerOptions>
+      </Item2>
+      <Item3 Name="Linux Debian X86 Debug QT">
+        <MacroValues Count="1">
+          <Macro1 Name="LCLWidgetType" Value="qt5"/>
+        </MacroValues>
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="bin/QT/debug/$(TargetCPU)-$(TargetOS)/lad"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <Libraries Value="/usr/local/codetyphon/binLibraries/i386-linux/"/>
+            <UnitOutputDirectory Value="lib/QT/debug/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="linux"/>
+          </CodeGeneration>
+          <Other>
+            <Verbosity>
+              <ShowAll Value="True"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+            <ConfigFile>
+              <StopAfterErrCount Value="2"/>
+            </ConfigFile>
+            <CustomOptions Value="-dDEBUG"/>
+          </Other>
+        </CompilerOptions>
+      </Item3>
+      <Item4 Name="Linux Debian X86 Release QT">
+        <MacroValues Count="1">
+          <Macro1 Name="LCLWidgetType" Value="qt5"/>
+        </MacroValues>
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="bin/QT/release/$(TargetCPU)-$(TargetOS)/lad"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib/QT/release/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="linux"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <UseLineInfoUnit Value="False"/>
+              <StripSymbols Value="True"/>
+            </Debugging>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShowNotes Value="False"/>
+              <ShowHints Value="False"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+          </Other>
+        </CompilerOptions>
+      </Item4>
+      <Item5 Name="Linux Debian X64 Debug GTK">
+        <MacroValues Count="1">
+          <Macro2 Name="LCLWidgetType" Value="gtk3"/>
+        </MacroValues>
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="bin/GTK/debug/$(TargetCPU)-$(TargetOS)/lad"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib/GTK/debug/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <TargetCPU Value="x86_64"/>
+            <TargetOS Value="linux"/>
+          </CodeGeneration>
+          <Other>
+            <Verbosity>
+              <ShowAll Value="True"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+            <CustomOptions Value="-dDEBUG"/>
+          </Other>
+        </CompilerOptions>
+      </Item5>
+      <Item6 Name="Linux Debian X64 Release GTK">
+        <MacroValues Count="1">
+          <Macro2 Name="LCLWidgetType" Value="gtk3"/>
+        </MacroValues>
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="bin/GTK/release/$(TargetCPU)-$(TargetOS)/lad"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib/GTK/release/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <SmartLinkUnit Value="True"/>
+            <RelocatableUnit Value="True"/>
+            <TargetCPU Value="x86_64"/>
+            <TargetOS Value="linux"/>
+            <Optimizations>
+              <OptimizationLevel Value="3"/>
+            </Optimizations>
+            <SmallerCode Value="True"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <UseLineInfoUnit Value="False"/>
+              <StripSymbols Value="True"/>
+            </Debugging>
+            <LinkSmart Value="True"/>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShowNotes Value="False"/>
+              <ShowHints Value="False"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+          </Other>
+        </CompilerOptions>
+      </Item6>
+      <Item7 Name="Linux Debian X86 Debug GTK">
+        <MacroValues Count="1">
+          <Macro2 Name="LCLWidgetType" Value="gtk3"/>
+        </MacroValues>
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="bin/GTK/debug/$(TargetCPU)-$(TargetOS)/lad"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib/GTK/debug/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="linux"/>
+          </CodeGeneration>
+          <Other>
+            <Verbosity>
+              <ShowAll Value="True"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+            <CustomOptions Value="-dDEBUG"/>
+          </Other>
+        </CompilerOptions>
+      </Item7>
+      <Item8 Name="Linux Debian X86 Release GTK">
+        <MacroValues Count="1">
+          <Macro2 Name="LCLWidgetType" Value="gtk3"/>
+        </MacroValues>
+        <CompilerOptions>
+          <Version Value="11"/>
+          <Target>
+            <Filename Value="bin/GTK/release/$(TargetCPU)-$(TargetOS)/lad"/>
+          </Target>
+          <SearchPaths>
+            <IncludeFiles Value="$(ProjOutDir)"/>
+            <UnitOutputDirectory Value="lib/GTK/release/$(TargetCPU)-$(TargetOS)"/>
+          </SearchPaths>
+          <CodeGeneration>
+            <TargetCPU Value="i386"/>
+            <TargetOS Value="linux"/>
+          </CodeGeneration>
+          <Linking>
+            <Debugging>
+              <GenerateDebugInfo Value="False"/>
+              <UseLineInfoUnit Value="False"/>
+              <StripSymbols Value="True"/>
+            </Debugging>
+          </Linking>
+          <Other>
+            <Verbosity>
+              <ShowNotes Value="False"/>
+              <ShowHints Value="False"/>
+            </Verbosity>
+            <WriteFPCLogo Value="False"/>
+          </Other>
+        </CompilerOptions>
+      </Item8>
+      <SharedMatrixOptions Count="2">
+        <Item1 ID="586590318570" Modes="Linux Debian X86 Debug QT,Linux Debian X64 Debug QT,Linux Debian X64 Release QT,Linux Debian X86 Release QT" Type="IDEMacro" MacroName="LCLWidgetType" Value="qt5"/>
+        <Item2 ID="023363819477" Modes="Linux Debian X64 Debug GTK,Linux Debian X64 Release GTK,Linux Debian X86 Debug GTK,Linux Debian X86 Release GTK" Type="IDEMacro" MacroName="LCLWidgetType" Value="gtk3"/>
+      </SharedMatrixOptions>
+    </BuildModes>
+    <PublishOptions>
+      <Version Value="2"/>
+    </PublishOptions>
+    <RunParams>
+      <local>
+        <FormatVersion Value="1"/>
+      </local>
+    </RunParams>
+    <RequiredPackages Count="1">
+      <Item1>
+        <PackageName Value="adLCL"/>
+      </Item1>
+    </RequiredPackages>
+    <Units Count="2">
+      <Unit0>
+        <Filename Value="linuxautocheckdisks.ppr"/>
+        <IsPartOfProject Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainFRM"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Main"/>
+      </Unit1>
+    </Units>
+  </ProjectOptions>
+  <CompilerOptions>
+    <Version Value="11"/>
+    <Target>
+      <Filename Value="bin/QT/debug/$(TargetCPU)-$(TargetOS)/lad"/>
+    </Target>
+    <SearchPaths>
+      <IncludeFiles Value="$(ProjOutDir)"/>
+      <UnitOutputDirectory Value="lib/QT/debug/$(TargetCPU)-$(TargetOS)"/>
+    </SearchPaths>
+    <CodeGeneration>
+      <TargetCPU Value="x86_64"/>
+      <TargetOS Value="linux"/>
+    </CodeGeneration>
+    <Other>
+      <Verbosity>
+        <ShowAll Value="True"/>
+      </Verbosity>
+      <WriteFPCLogo Value="False"/>
+      <CustomOptions Value="-dDEBUG"/>
+    </Other>
+  </CompilerOptions>
+  <Debugging>
+    <Exceptions Count="3">
+      <Item1>
+        <Name Value="EAbort"/>
+      </Item1>
+      <Item2>
+        <Name Value="ECodetoolError"/>
+      </Item2>
+      <Item3>
+        <Name Value="EFOpenError"/>
+      </Item3>
+    </Exceptions>
+  </Debugging>
+</CONFIG>

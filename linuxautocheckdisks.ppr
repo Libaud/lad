@@ -1,0 +1,22 @@
+program linuxautocheckdisks;
+
+{$mode objfpc}{$H+}
+
+uses
+  {$IFDEF UNIX}{$IFDEF UseCThreads}
+  cthreads,
+  {$ENDIF}{$ENDIF}
+  Interfaces, // this includes the LCL widgetset
+  Forms, Main
+  { you can add units after this };
+
+{$R *.res}
+
+begin
+  Application.Title:='Linux Autocheck Disks';
+  RequireDerivedFormResource:=True;
+  Application.Initialize;
+  Application.CreateForm(TMainFRM, MainFRM);
+  Application.Run;
+end.
+
